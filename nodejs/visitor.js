@@ -10,23 +10,19 @@ class Visitor {
        this.count = 0;
    }
     
-    getCount() {
-       console.log(count);
-       return count;
-   }
+   
    get() {
        console.log("oh yeyy");
        console.log(this.fullname);
    }
     increaseCount() {
        count += 1;
-      
+       return count
    }
    
    save() {
-       this.increaseCount();
-       this.getCount();
-       var path = "visitor_" + count + ".txt";
+       this. increaseCount();
+       var path = "visitor_1.txt" + count + ".json";
        var data = "Fullname: " + this.fullname + " Date of Visit: " + this.dateOfVisit + " Time of Visit: " + this.timeOfVisit + " Assisstant " + this.nameOfAssistant + " Comment " + this.comments + ".\n";
        fs.writeFileSync(path, data)
        console.log(count);
@@ -35,14 +31,14 @@ class Visitor {
        if(index <= 0) {
            console.log("File not found");
        }
-       var path = "visitor_" + index;
+       var path = "visitor_1.txt" + index;
       var data =  fs.readFileSync(path);
       console.log(data);
    }
 }
-var linda = new Visitor( "lindo", 22, 3, "Samke", "no comments" );
-var Buhle = new Visitor( "Clode", 12,6,"Jake","no comments");
+var linda = new Visitor( "Lindo", 22, 3, "Samke", "no comments" );
+var buhle = new Visitor( "Clode", 12,6,"Jake","no comments");
 linda.get();
 linda.save();
 buhle.save();
-buhle.load(1);
+//buhle.load(1);

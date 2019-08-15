@@ -1,3 +1,4 @@
+var fs = require('fs');
 var visit = require("./visitor");
 describe("spies", function () {
   var visitor = new Visitor("lindo", "ndamane", 11 / 2 / 2019, 2, "luu");

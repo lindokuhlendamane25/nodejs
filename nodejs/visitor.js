@@ -1,6 +1,6 @@
 var fs = require('fs');
 var count = 0
-class Visitor {
+module.export = class Visitor {
    constructor ( firstName, secondName, dateOfVisit, timeOfVisit, nameOfAssistant, comments ){
        this.fullname = firstName + " " + secondName;
        this.dateOfVisit = dateOfVisit;

@@ -1,14 +1,21 @@
-visit = require('../visitor');
-var visitor = new Visitor("Lindo", "Ndamane", 11 / 2 / 2019, 2, "luu");
-describe("save", function () {
+var fs = require("fs");
+var Visitor = require('../visitor');
+
+describe("save", function () { 
   it('should create a json file', function () {
-    expect(visitor.save()).toContain("saved");
+    let lindo = new Visitor("Lindo", "Ndamane", 11 / 2 / 2019, 2, "luu");
+    expect(lindo.save()).toBeDefined();
   });
 });
 
-describe("read", function () {
+describe("load method", function () {
   it("should read content", function () {
-    var result = visitor.load(1);
-    expect(result).not.toBeNull();
+    let lindo = new Visitor("Lindo", "Ndamane", 11 / 2 / 2019, 2, "luu");
+    expect(lindo.load()).toBeDefined();
   })
-})
+  it("should return a json object", function () {
+    let lindo = new Visitor("Lindo", "Ndamane", 11 / 2 / 2019, 2, "luu");
+    let result = JSON.stringify(lindo)
+    expect(lindo.load(1)).toBe(result);
+  })
+}) 

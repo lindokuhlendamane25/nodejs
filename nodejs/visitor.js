@@ -1,6 +1,7 @@
-var fs = require('fs');
+var fs = require("fs");
 var count = 0
-class Visitor {
+
+ class Visitor {
    constructor ( firstName, secondName, dateOfVisit, timeOfVisit, nameOfAssistant, comments ){
        this.fullname = firstName + " " + secondName;
        this.dateOfVisit = dateOfVisit;
@@ -22,23 +23,35 @@ class Visitor {
    
    save() {
        this. increaseCount();
-       var path = "visitor_1.txt" + count + ".json";
-       var data = "Fullname: " + this.fullname + " Date of Visit: " + this.dateOfVisit + " Time of Visit: " + this.timeOfVisit + " Assisstant " + this.nameOfAssistant + " Comment " + this.comments + ".\n";
+       var path = "visitor_" + count + ".json";
+
+       var data = JSON.stringify(this)
        fs.writeFileSync(path, data)
-       console.log(count);
+       return "file  saved";
    }
-   load(index) {
-       if(index <= 0) {
-           console.log("File not found");
-       }
-       var path = "visitor_1.txt" + index;
-      var data =  fs.readFileSync(path);
-      console.log(data);
+   load() {
+        if(count<= 0) {
+            console.log("File not found");
+     }
+    
+     let path = "visitor_" + count;
+     var data = JSON.stringify(this)
+     try {
+         
+     } catch (error) {
+        fs.readFileSync(path, data);
+     }
+     return (data)
+
    }
 }
-var linda = new Visitor( "Lindo", 22, 3, "Samke", "no comments" );
-var buhle = new Visitor( "Clode", 12,6,"Jake","no comments");
-linda.get();
-linda.save();
-buhle.save();
+// var linda = new Visitor( "Lindo", 22, 3, "Samke", "no comments" );
+//  var buhle = new Visitor( "Clode", 12,6,"Jake","no comments");
+// linda.get();
+// linda.save();
+// buhle.save();
+
 //buhle.load(1);
+ 
+
+module.exports = Visitor

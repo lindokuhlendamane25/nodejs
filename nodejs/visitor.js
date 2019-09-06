@@ -45,13 +45,5 @@ var count = 0
 
    }
 }
-// var linda = new Visitor( "Lindo", 22, 3, "Samke", "no comments" );
-//  var buhle = new Visitor( "Clode", 12,6,"Jake","no comments");
-// linda.get();
-// linda.save();
-// buhle.save();
-
-//buhle.load(1);
- 
 
 module.exports = Visitor
